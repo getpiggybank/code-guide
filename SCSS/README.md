@@ -40,7 +40,7 @@ Descendants of components should only be nested **1 level deep** *unless* the
 nesting is a psuedo selector or native hover/active styles
 
 
-###WRONG:
+####WRONG:
 ```css
 .RadioToggle {
   .__option {
@@ -51,7 +51,7 @@ nesting is a psuedo selector or native hover/active styles
 ```
 
 
-###RIGHT:
+####RIGHT:
 ```css
 .RadioToggle {
   .__option {}
@@ -64,7 +64,6 @@ nesting is a psuedo selector or native hover/active styles
 //Congratulations! You get to keep your job!
 ```
 
-This means our longest output should be `.RadioToggle .__title:hover` and
 
 ##Rule structure
 
