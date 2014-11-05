@@ -16,7 +16,7 @@ Don't rely on long strings of one naming scheme like `.RadioToggleTitleActive`
 or `.radio-toggle-title-active`. Instead we are using a structure like the
 following:
 
-```css
+```scss
 //Component
 .ComponentName {}
 
@@ -41,7 +41,7 @@ nesting is a psuedo selector or native hover/active styles
 
 
 ####WRONG:
-```css
+```scss
 .RadioToggle {
   .__option {
     .__title {} // Don't nest .__element classes two levels deep!
@@ -52,7 +52,7 @@ nesting is a psuedo selector or native hover/active styles
 
 
 ####RIGHT:
-```css
+```scss
 .RadioToggle {
   .__option {}
   .__title {
@@ -69,13 +69,12 @@ nesting is a psuedo selector or native hover/active styles
 
 This keeps a level of uniformity to how our properties are set up.
 
-```
+```scss
 .ComponentName {
   property: value;          // first component properties
   @include prop(value);     // then mixins
   &:hover {}                // then native pseudo or hover styles for the component
   &.is-inActive {}          // then custom state classes for the component
-
   .__element {              // then descendants
     property: value;           // which in turn follows the same structure
     @include prop(val);        // except there should be no nested elements
