@@ -18,6 +18,7 @@ following:
 
 ```scss
 //Variables
+$ComponentName-variable: value;
 $__element-variable: value;
 $__element--modifier-variable: value;
 
@@ -40,8 +41,10 @@ $__element--modifier-variable: value;
 .__descendant.is-state {}
 ```
 
+##Nesting
+
 Descendants of components should only be nested **1 level deep** *unless* the
-nesting is a psuedo selector or native hover/active styles
+nesting is a psuedo selector, native hover/active styles, or a custom `.is-foo` class.
 
 ####WRONG:
 ```scss
@@ -70,9 +73,11 @@ nesting is a psuedo selector or native hover/active styles
 //Congratulations! You get to keep your job!
 ```
 
-##Rule structure
+This keeps our outputted css limited to two actual elements, including pseudo selectors. `.ComponentName .__element.is-active` would be the longest selector in our built css and that's the way we want to keep it. This will help keep specificity simple should rules need to be overridden in the future.
 
-This keeps a level of uniformity to how our properties are set up.
+##Stylesheet and Rule structure
+
+This keeps a level of uniformity to how our files are set up.
 
 ```scss
 $__element-variable: value; // variables for this component at the top of the page
@@ -81,7 +86,7 @@ $__element-variable: value; // variables for this component at the top of the pa
   property: value;          // first component properties
   @include prop(value);     // then mixins
   &:hover {}                // then native pseudo or hover styles for the component
-  &.is-inActive {}          // then custom state classes for the component
+  &.is-inactive {}          // then custom state classes for the component
   .__element {              // then descendants
     property: value;           // which in turn follows the same structure
     @include prop(val);        // except there should be no nested elements
@@ -95,5 +100,15 @@ $__element-variable: value; // variables for this component at the top of the pa
 @import "subcomponent/subcomponent"; // lastly any imports
 ```
 
-This keeps our outputted css limited to two actual elements, including pseudo selectors. `.componentName .__element.is-active` would be the longest selector in our built css and that's the way we want to keep it. This
-will help keep specificity simple should rules need to be overridden in the future.
+##Colors
+
+Our colors variables stylesheet should be setup like so:
+
+```scss
+$variable: #000000 // comment giving example uses
+
+$darkgreen: #81A749; // green text like "Next Card Balance"
+```
+
+The color value should be hex or an scss function like `lighten()` or `darken()` used on another variable.
+
