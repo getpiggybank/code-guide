@@ -17,6 +17,10 @@ or `.radio-toggle-title-active`. Instead we are using a structure like the
 following:
 
 ```scss
+//Variables
+$__element-variable: value;
+$__element--modifier-variable: value;
+
 //Component
 .ComponentName {}
 
@@ -39,17 +43,18 @@ following:
 Descendants of components should only be nested **1 level deep** *unless* the
 nesting is a psuedo selector or native hover/active styles
 
-
 ####WRONG:
 ```scss
 .RadioToggle {
   .__option {
-    .__title {} // Don't nest .__element classes two levels deep!
+    // Don't nest .__element classes two levels deep!
+    .__title {}
   }
   &.is-active {}
+  // Don't use @import within a rule!
+  @import "toggle-option/toggle-option";
 }
 ```
-
 
 ####RIGHT:
 ```scss
@@ -60,16 +65,18 @@ nesting is a psuedo selector or native hover/active styles
   }
   &.is-active {}
 }
+@import "toggle-option/toggle-option";
 
 //Congratulations! You get to keep your job!
 ```
-
 
 ##Rule structure
 
 This keeps a level of uniformity to how our properties are set up.
 
 ```scss
+$__element-variable: value; // variables for this component at the top of the page
+
 .ComponentName {
   property: value;          // first component properties
   @include prop(value);     // then mixins
@@ -84,7 +91,9 @@ This keeps a level of uniformity to how our properties are set up.
   .__element--modifier {}   // then modifiers of descendants
 }
 .ComponentName--modifier {}   // then modifiers of components
+
+@import "subcomponent/subcomponent"; // lastly any imports
 ```
 
-This keeps our outputted css limited to two elements. `.componentName .__element.is-active` would be the longest selector in our built css and that's the way we want to keep it. This
+This keeps our outputted css limited to two actual elements, including pseudo selectors. `.componentName .__element.is-active` would be the longest selector in our built css and that's the way we want to keep it. This
 will help keep specificity simple should rules need to be overridden in the future.

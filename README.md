@@ -1,4 +1,6 @@
-code-guide
+Code-Guide
 ==========
 
-This repo houses all of our code guides for SCSS, JS, etc.
+This repo houses our Piggybank code guide for SCSS, JS, etc.
+
+Each section should be it's own folder with a README.md.
