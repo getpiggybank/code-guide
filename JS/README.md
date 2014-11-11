@@ -59,6 +59,6 @@ The final truth falls along the lines of [DRY](http://en.wikipedia.org/wiki/Don'
 
 These small, single-task, autonomous modules increase the velocity of understanding code by requiring you to only ingest small amount of logic at a time verse opening a file with 2,000LoC and just seeing a wall of code. That is a huge mental strain and keeps you less focused. Instead, you want to be able to write code that, when an error occurs, the error happens in a file with just a dozen or less lines of code. 
 
-> The good person is they who rule themselves as they do their own property: his autonomous being is modelled on material power.
+> The good person is they who rule themselves as they do their own property: their autonomous being is modelled on material power.
 
 _-Theodor Adorno_
