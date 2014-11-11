@@ -1,4 +1,5 @@
 # Piggybank's JavaScript Code Guide
+## The Three Truths
 
 At Piggybank we don't have crazy micro-managy rules on writing JavaScript like [Airbnb](https://github.com/airbnb/javascript). Those guides are gigantic and they take quite a bit of time to study. Instead, we have Three Truths when writing JavaScript:
 
@@ -6,7 +7,7 @@ At Piggybank we don't have crazy micro-managy rules on writing JavaScript like [
 2. Explicit
 3. Autonomous
 
-## Consistent
+### Consistent
 #### tl;dr keep the code you add looking like the existing code
 
 The first Truth is keeping code _consistent_. When writing code in an existing file the next engineer looking at the file should have no idea who wrote what line. That means, if all event handlers in the file are named like `eventHandler` such as `clickHandler`, `changeHandler`, etc, and you want to add a `mouseover` handler, don't add a method called `handleMouseover`.
@@ -17,7 +18,7 @@ This overrides any style guidelines as well if it's not an easy change. Even tho
 
 _- Louis C. K._
 
-## Explicit
+### Explicit
 #### tl;dr don't be clever with your code
 
 The second Truth is make sure the code you write is _explicit_. It should be clear what the code is doing. No magic, tricks or cleverness. Try to let your code read like a book. The more jumping around other people working on your code have to do the more frustrated they'll get and the more repeated reading the more foolish they will feel. There will always be lines of code that take many reads to understand, but if you can avoid it stay with being explicit about what the code is doing. Let's take a look at a piece of example code that people may consider "clever" and short:
@@ -52,7 +53,7 @@ This does not mean using a ternary is bad or that you need to push it to the ext
 
 _- Jeremy Bentham_
 
-## Autonomous
+### Autonomous
 #### tl;dr try to take all the code you write and put them in tiny independent modules
 
 The final truth falls along the lines of [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself), but takes it a bit further than that. Not only should code not repeat itself, it should be _autonomous_ and work on its own whenever possible. Always be asking yourself, "could this code I'm DRYing up become an independent, reusable module?" and if it can be, _do that_. Even if its only a couple lines, you will not only save yourself time by being able to just `require()` that small method in other modules later, other engineers building other features can save an enormous amount of time by just `require()`ing code into their new modules. 
