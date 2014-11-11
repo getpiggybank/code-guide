@@ -18,7 +18,7 @@ This overrides any style guidelines as well if it's not an easy change. Even tho
 _- Louis C. K._
 
 ## Explicit
-#### tl;dr Don't be clever with your code
+#### tl;dr don't be clever with your code
 
 The second Truth is make sure the code you write is _explicit_. It should be clear what the code is doing. No magic, tricks or cleverness. Try to let your code read like a book. The more jumping around other people working on your code have to do the more frustrated they'll get and the more repeated reading the more foolish they will feel. There will always be lines of code that take many reads to understand, but if you can avoid it stay with being explicit about what the code is doing. Let's take a look at a piece of example code that people may consider "clever" and short:
 
